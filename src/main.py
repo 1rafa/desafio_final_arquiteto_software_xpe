@@ -1,6 +1,5 @@
-# main.py
 from fastapi import FastAPI
-from src.view.customer_view import router as customer_router
+from src.controller.customer_controller import router as customer_router
 
 # Cria a instância da aplicação FastAPI
 app = FastAPI(

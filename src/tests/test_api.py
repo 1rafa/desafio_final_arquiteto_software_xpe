@@ -12,7 +12,8 @@ from src.main import app  # Importa a instância da aplicação FastAPI definida
 
 
 class Test:
-    db_path = r"D:\Documentos\Estudos\XP Educacao\Desafio Final 1\APIXPEducacao\database\customer_test.db"
+    # >>> ALTERE O PATH ABAIXO <<<
+    db_path = r"D:\Documentos\Estudos\XP Educacao\Desafio Final 1\APIXPEducacao\database\customer.db"
 
     # Instancia o TestClient com a aplicação FastAPI
     client = TestClient(app)
@@ -170,9 +171,12 @@ class Test:
         cm1 = CustomerModel(name="Teste Cliente1", email="teste1@example.com", phone="123456789")
         cm1 = CustomerModel.create(db, cm1)
         cm2 = CustomerModel(name="Teste Cliente2", email="teste2@example.com", phone="999999999")
-        cm1 = CustomerModel.create(db, cm2)
+        cm2 = CustomerModel.create(db, cm2)
 
         ct = CustomerModel.count(db)
+
+        CustomerModel.delete(db, customer_id=1)
+        CustomerModel.delete(db, customer_id=2)
 
         assert ct == 2
 
